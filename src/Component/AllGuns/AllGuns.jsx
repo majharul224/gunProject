@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import SingleGun from '../SingleGun/SingleGun';
 
-const AllGuns = ({countIncrease}) => {
+
+
+const AllGuns = ({ countIncrease }) => {
     const [guns, setGuns] = useState([]);
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/mir-hussain/guns/main/data.json')
@@ -15,15 +17,13 @@ const AllGuns = ({countIncrease}) => {
 
             <div className=' w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-5'>
                 {
-                    guns.slice(0, 6).map(gun => <SingleGun
+                    guns.slice(0, 6)?.map(gun => <SingleGun
                         key={gun.id}
-                        // name={name}
                         gun={gun}
                         countIncrease={countIncrease}
                     ></SingleGun>)
                 }
             </div>
-
         </div>
     );
 };
