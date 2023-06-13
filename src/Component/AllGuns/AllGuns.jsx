@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import SingleGun from '../SingleGun/SingleGun';
-
+import Modal from '../Modal/Modal';
 
 
 const AllGuns = ({ countIncrease }) => {
     const [guns, setGuns] = useState([]);
+
+    const [gunDetails, setGunDetiles ]=useState(null)
+
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/mir-hussain/guns/main/data.json')
             .then(res => res.json())
@@ -21,9 +24,15 @@ const AllGuns = ({ countIncrease }) => {
                         key={gun.id}
                         gun={gun}
                         countIncrease={countIncrease}
+                        setGunDetiles={setGunDetiles}
                     ></SingleGun>)
                 }
             </div>
+         {
+         gunDetails &&
+         <Modal
+          gunDetails={gunDetails}
+          ></Modal>}
         </div>
     );
 };

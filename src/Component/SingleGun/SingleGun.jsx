@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
 
-const SingleGun = ({countIncrease,gun}) => {
+const SingleGun = ({countIncrease,gun,setGunDetiles}) => {
+
   const { name, img,action,price,category,bullet,capacity} = gun
- 
+  
+ const handelDeities=()=>{
+  setGunDetiles(gun)
+  window.my_modal_3.showModal()
+ }
  
   return (
     <div className="card w-full bg-base-100 shadow-xl my-10">
@@ -19,8 +23,11 @@ const SingleGun = ({countIncrease,gun}) => {
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="card-actions mt-4">
         <button onClick={()=>countIncrease()} className="btn btn-sm btn-primary">Add to Cart</button>
-          {/* <button className="btn btn-sm btn-secondary" onClick={() => window.my_modal_4.showModal()}>Details</button> */}
-        </div>
+          <button className="btn btn-sm btn-secondary" onClick={()=>
+          handelDeities()
+          }>Details</button>
+  
+  </div>
       </div>
     </div>
   );
