@@ -5,7 +5,7 @@ const SingleGun = ({countIncrease,gun,setGunDetiles}) => {
   
  const handelDeities=()=>{
   setGunDetiles(gun)
-  window.my_modal_3.showModal()
+  window.my_modal_3?.showModal()
  }
  
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 const Modal = ({gunDetails}) => {
-    const {name,price}=gunDetails
+    const {name,price,category,bullet}=gunDetails
     return (
         <>
             <dialog id="my_modal_3" className="modal">
